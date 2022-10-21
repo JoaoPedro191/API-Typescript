@@ -1,0 +1,71 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Rentalx Documentation",
+    "description": "This is an API Rent",
+    "version": "1.0.0",
+    "Contact": {
+      "email": "sasc.joao@gmail.com"
+    }
+  },
+  "paths": {
+    "/categories": {
+      "post": {
+        "tags": ["Category"],
+        "sumary": "Create a category",
+        "description": "create a new category",
+        "requestBody": {
+          "content": {
+            "aplication/json": {
+              "schema": {
+                "type": "object",
+                "propertires": {
+                  "name": "string",
+                  "description": "string"
+                }
+              },
+              "example": {
+                "name": "Category name sample",
+                "description": "Category description sample"
+              }
+            }
+          }
+        },
+        "response": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Category already Exist"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Category"],
+        "sumary": "List all categories",
+        "description": "List all categories",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "aplication/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "types": "object",
+                    "propertires": {
+                      "name": "string",
+                      "description": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
